@@ -1,0 +1,48 @@
+{
+  "users": [
+    {
+      "name": "Tiny",
+      "id": 0
+    },
+    {
+      "name": "Doom",
+      "id": 1
+    },
+    {
+      "name": "Orge Magi",
+      "id": 2
+    },
+    {
+      "name": "Skeleton king",
+      "id": 3
+    },
+    {
+      "name": "Orge Lord",
+      "id": 4
+    },
+    {
+      "name": "Wu Kong",
+      "id": 5
+    },
+    {
+      "name": "Tide Hunter",
+      "id": 6
+    },
+    {
+      "name": "Moon Rider",
+      "id": 7
+    },
+    {
+      "name": "Geomancer",
+      "id": 8
+    },
+    {
+      "name": "Pudgy",
+      "id": 9
+    },
+    {
+      "name": "Bruthmader",
+      "id": 10
+    }
+  ]
+}
