@@ -21,28 +21,32 @@
       "id": 4
     },
     {
-      "name": "Wu Kong",
-      "id": 5
-    },
-    {
       "name": "Tide Hunter",
       "id": 6
     },
     {
-      "name": "Moon Rider",
-      "id": 7
-    },
-    {
-      "name": "Geomancer",
-      "id": 8
-    },
-    {
-      "name": "Pudgy",
+      "name": "Stealth Asasine",
       "id": 9
     },
     {
-      "name": "Bruthmader",
+      "name": "Axe",
       "id": 10
+    },
+    {
+      "name": "Orge Lord",
+      "id": 11
+    },
+    {
+      "name": "Bat Rider",
+      "id": 12
+    },
+    {
+      "name": "Sniper",
+      "id": 13
+    },
+    {
+      "name": "Sand King",
+      "id": 14
     }
   ]
 }

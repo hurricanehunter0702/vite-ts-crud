@@ -1,12 +1,21 @@
-import { useDelete } from "../hooks/useDelete"
 import { User } from "../types"
 import { Link } from "react-router-dom"
+import { deleteUserApi } from "../services/userApis" 
+import { useMutation, useQueryClient } from "@tanstack/react-query"
 
 export default function UsersTable ({users}: {users: User[]}) {
+  const queryClient = useQueryClient()
+
+  const {
+    mutate: deleteUser,
+  } = useMutation({
+    mutationFn: deleteUserApi,
+    onSettled: () => queryClient.invalidateQueries({queryKey: ['users']}),
+  })
 
   const onDelete = (id: number) => {
     if (window.confirm('Are you sure?')) {
-      useDelete(id)
+      deleteUser(id)
     }
   }
 

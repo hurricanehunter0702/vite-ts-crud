@@ -4,6 +4,9 @@ import {
   RouterProvider
 } from 'react-router-dom'
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+
 import Home from './pages/Home.tsx'
 import Add from './pages/Add.tsx'
 import Edit from './pages/Edit.tsx'
@@ -25,9 +28,13 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const queryClient = new QueryClient
   return (
     <React.StrictMode>
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+        <ReactQueryDevtools />
+      </QueryClientProvider>
     </React.StrictMode>
   )
 }
