@@ -15,7 +15,7 @@ export default function Edit () {
     mutate: editUser
   } = useEditUser()
 
-  const onEdit = (event: ChangeEvent<HTMLFormElement>): void => {
+  const handleSubmit = (event: ChangeEvent<HTMLFormElement>): void => {
     event.preventDefault()
     const formData = new FormData(event.target as HTMLFormElement)
     editUser({id, name: formData.get('name') as string})
@@ -24,7 +24,7 @@ export default function Edit () {
   return (
     <div>
       <h1>Edit</h1>
-      <form onSubmit={onEdit}>
+      <form onSubmit={handleSubmit}>
         <input name="name" placeholder="Name..." defaultValue={selectedUser?.name} />{' '}
         <input type="submit" />
       </form>

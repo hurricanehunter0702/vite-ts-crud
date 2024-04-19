@@ -22,7 +22,7 @@ export const useEditUser = () => {
     mutationKey: ['editUser'],
     mutationFn: editUserApi,
     onSuccess: () => {
-      queryClient.invalidateQueries({queryKey: ['users']})
+      queryClient.invalidateQueries({queryKey: ['user']})
       navigate('/')
     }
   })

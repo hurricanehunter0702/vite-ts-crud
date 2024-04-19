@@ -8,7 +8,7 @@ const http = axios.create({
 
 export async function fetchUsersApi() {
   console.log('fetchUsers :>> ');
-  const {data} = await http.get('/users')
+  const {data} = await http.get('/users?_sort=name')
   return data
 }
 

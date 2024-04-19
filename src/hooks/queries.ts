@@ -6,5 +6,5 @@ export const useUsers = () => {
 }
 
 export const useUser = (id: string) => {
-  return useQuery({ queryKey: ['fetchUser'], queryFn: () => fetchUserApi(id) })
+  return useQuery({ queryKey: ['user', id], queryFn: () => fetchUserApi(id) })
 }
