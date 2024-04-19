@@ -1,24 +1,27 @@
-import { FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid'
 import { useAddUser } from "../hooks/mutations";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { Input } from "../types";
 
 export default function Add() {
+  const {
+    register,
+    handleSubmit,
+  } = useForm<Input>()
+
+  const onSubmit: SubmitHandler<Input> = (data) => {
+    addUser({name: data.name, id: uuidv4()})
+  }
   const {
     mutate: addUser
   } = useAddUser()
 
-  const onSubmit = (event: FormEvent<HTMLFormElement>): void => {
-    event.preventDefault()
-    const formData = new FormData(event.target as HTMLFormElement);
-    addUser({name: formData.get('name') as string, id: uuidv4()})
-  }
-
   return (
     <div>
       <h1>Add</h1>
-      <form onSubmit={onSubmit}>
-        <input name='name' placeholder="Name..." />{' '}
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input {...register('name')} />
         <input type="submit" />
       </form>
       <br />

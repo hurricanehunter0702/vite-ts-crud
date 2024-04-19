@@ -1,11 +1,17 @@
-import { ChangeEvent } from "react"
+import { SubmitHandler, useForm } from "react-hook-form"
 import { Link } from "react-router-dom"
 import { useEditUser } from "../hooks/mutations"
 import { useUser } from "../hooks/queries"
+import { Input } from "../types"
 import { getIdFromUrl } from "../utils/getIdFromUrl"
 
 export default function Edit () {
   const {id} = getIdFromUrl(window.location.href)
+
+  const {
+    register,
+    handleSubmit
+  } = useForm<Input>()
 
   const {
     data: selectedUser
@@ -15,17 +21,15 @@ export default function Edit () {
     mutate: editUser
   } = useEditUser()
 
-  const handleSubmit = (event: ChangeEvent<HTMLFormElement>): void => {
-    event.preventDefault()
-    const formData = new FormData(event.target as HTMLFormElement)
-    editUser({id, name: formData.get('name') as string})
+  const onSubmit: SubmitHandler<Input> = (data) => {
+    editUser({id, name: data.name})
   }
 
   return (
     <div>
       <h1>Edit</h1>
-      <form onSubmit={handleSubmit}>
-        <input name="name" placeholder="Name..." defaultValue={selectedUser?.name} />{' '}
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input {...register('name')} defaultValue={selectedUser?.name} />
         <input type="submit" />
       </form>
       <br />

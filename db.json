@@ -23,6 +23,30 @@
     {
       "id": "4d1f4bd2-a553-4617-9dd6-d5ba8c883675",
       "name": "Stealth Asasine"
+    },
+    {
+      "id": "a7c9d050-4ad6-4198-806b-84019c74bc2e",
+      "name": "Sand King"
+    },
+    {
+      "id": "664e304c-9cb6-445e-ada3-e3691bdbdc29",
+      "name": "Alchemist"
+    },
+    {
+      "id": "504141ab-0db0-4bc0-abeb-02e26cff5b5f",
+      "name": "Orge Lord"
+    },
+    {
+      "id": "0e311190-e316-430e-95f2-9dacdd2c71a5",
+      "name": "Sniper"
+    },
+    {
+      "id": "9544f842-43bf-4cbf-9764-b4339de03163",
+      "name": "Doom Brindger"
+    },
+    {
+      "id": "a79248bd-0749-4c84-a7c1-da40fb9978f8",
+      "name": "Centar"
     }
   ]
 }

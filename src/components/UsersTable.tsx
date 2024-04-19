@@ -15,32 +15,32 @@ export default function UsersTable ({users}: {users: User[]}) {
 
   return (
     <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Actions</th>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          users.length ? users.map((user, idx) => {
+            return (
+              <tr key={user.id}>
+                <td>{idx + 1}</td>
+                <td>{user.name}</td>
+                <td>
+                  <Link to={`/edit/${user.id}`}>Edit</Link>{' '}
+                  <button onClick={() => onDelete(user.id)}>Delete</button>
+                </td>
+              </tr>
+            )
+          })
+          : <tr>
+            <td colSpan={3} style={{textAlign: 'center', color: 'lightpink'}}>No users</td>
           </tr>
-        </thead>
-        <tbody>
-          {
-            users.length ? users.map((user, idx) => {
-              return (
-                <tr key={user.id}>
-                  <td>{idx + 1}</td>
-                  <td>{user.name}</td>
-                  <td>
-                    <Link to={`/edit/${user.id}`}>Edit</Link>{' '}
-                    <button onClick={() => onDelete(user.id)}>Delete</button>
-                  </td>
-                </tr>
-              )
-            })
-            : <tr>
-              <td colSpan={3} style={{textAlign: 'center', color: 'lightpink'}}>No users</td>
-            </tr>
-          }
-        </tbody>
-      </table>
+        }
+      </tbody>
+    </table>
   )
 }
