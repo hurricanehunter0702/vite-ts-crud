@@ -2,8 +2,7 @@ import { Link } from "react-router-dom"
 import Error from "../components/Error"
 import Loading from "../components/Loading"
 import UsersTable from "../components/UsersTable"
-import {useQuery} from '@tanstack/react-query'
-import { fetchUsersApi } from "../services/userApis" 
+import { useUsers } from "../hooks/queries"
 
 export default function Home () {
   const {
@@ -11,7 +10,7 @@ export default function Home () {
     isLoading,
     data: users,
     isSuccess
-  } = useQuery({ queryKey: ['users'], queryFn: fetchUsersApi })
+  } = useUsers()
 
   if (isError) {
     return <Error />

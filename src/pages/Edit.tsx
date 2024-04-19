@@ -1,7 +1,7 @@
-import { useMutation, useQuery } from "@tanstack/react-query"
 import { ChangeEvent } from "react"
 import { Link } from "react-router-dom"
-import { editUserApi, fetchUserApi } from "../services/userApis" 
+import { useEditUser } from "../hooks/mutations"
+import { useUser } from "../hooks/queries"
 import { getIdFromUrl } from "../utils/getIdFromUrl"
 
 export default function Edit () {
@@ -9,11 +9,11 @@ export default function Edit () {
 
   const {
     data: selectedUser
-  } = useQuery({ queryKey: ['fetchUser'], queryFn: () => fetchUserApi(id) })
+  } = useUser(id)
 
   const {
     mutate: editUser
-  } = useMutation({ mutationKey: ['editUser'], mutationFn: editUserApi })
+  } = useEditUser()
 
   const onEdit = (event: ChangeEvent<HTMLFormElement>): void => {
     event.preventDefault()

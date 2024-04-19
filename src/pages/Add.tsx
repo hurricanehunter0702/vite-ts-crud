@@ -1,22 +1,12 @@
 import { FormEvent } from "react";
-import { Link, useNavigate} from "react-router-dom";
-import {useMutation, useQueryClient} from '@tanstack/react-query'
-import { addUserApi } from "../services/userApis";
+import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid'
+import { useAddUser } from "../hooks/mutations";
 
 export default function Add() {
-  const queryClient = useQueryClient()
-  const navigate = useNavigate()
-
   const {
     mutate: addUser
-  } = useMutation({
-    mutationFn: addUserApi,
-    onSuccess: () => {
-      queryClient.invalidateQueries({queryKey: ['users']})
-      navigate('/')
-    }
-  })
+  } = useAddUser()
 
   const onSubmit = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault()

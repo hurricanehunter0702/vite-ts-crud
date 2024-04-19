@@ -1,8 +1,16 @@
 {
   "users": [
     {
-      "id": "63384a6b-62fa-49ec-998a-d0ba8b8a09b4",
-      "name": "Troll"
+      "id": "d3f6527d-eb0c-4056-abf4-c79882261d2b",
+      "name": "Orge Magi"
+    },
+    {
+      "id": "c3bad458-71eb-458a-a41b-af1594047972",
+      "name": "Orge Lord"
+    },
+    {
+      "id": "eafc8590-166a-43f2-9fe3-b6ffae348451",
+      "name": "Tiny"
     }
   ]
 }
