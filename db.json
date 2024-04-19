@@ -1,52 +1,8 @@
 {
   "users": [
     {
-      "name": "Tiny",
-      "id": 0
-    },
-    {
-      "name": "Doom",
-      "id": 1
-    },
-    {
-      "name": "Orge Magi",
-      "id": 2
-    },
-    {
-      "name": "Skeleton king",
-      "id": 3
-    },
-    {
-      "name": "Orge Lord",
-      "id": 4
-    },
-    {
-      "name": "Tide Hunter",
-      "id": 6
-    },
-    {
-      "name": "Stealth Asasine",
-      "id": 9
-    },
-    {
-      "name": "Axe",
-      "id": 10
-    },
-    {
-      "name": "Orge Lord",
-      "id": 11
-    },
-    {
-      "name": "Bat Rider",
-      "id": 12
-    },
-    {
-      "name": "Sniper",
-      "id": 13
-    },
-    {
-      "name": "Sand King",
-      "id": 14
+      "id": "63384a6b-62fa-49ec-998a-d0ba8b8a09b4",
+      "name": "Troll"
     }
   ]
 }

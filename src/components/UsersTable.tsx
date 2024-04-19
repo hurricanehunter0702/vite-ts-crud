@@ -13,7 +13,7 @@ export default function UsersTable ({users}: {users: User[]}) {
     onSettled: () => queryClient.invalidateQueries({queryKey: ['users']}),
   })
 
-  const onDelete = (id: number) => {
+  const onDelete = (id: string) => {
     if (window.confirm('Are you sure?')) {
       deleteUser(id)
     }
