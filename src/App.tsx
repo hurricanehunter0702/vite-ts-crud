@@ -6,6 +6,7 @@ import {
   RouterProvider,
   createBrowserRouter,
 } from 'react-router-dom'
+import { createTheme, ThemeProvider } from '@mui/material'
 
 import './App.css'
 import Add from './pages/Add.tsx'
@@ -28,13 +29,21 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const darkTheme = createTheme({
+    palette: {
+      mode: 'dark'
+    }
+  })
   const queryClient = new QueryClient()
+
   return (
     <React.StrictMode>
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-        <ReactQueryDevtools />
-      </QueryClientProvider>
+      <ThemeProvider theme={darkTheme}>
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+          <ReactQueryDevtools />
+        </QueryClientProvider>
+      </ThemeProvider>
     </React.StrictMode>
   )
 }
