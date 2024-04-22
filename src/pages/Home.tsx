@@ -5,6 +5,7 @@ import { Button } from "@mui/material"
 import Error from "../components/Error.tsx"
 import { useUsers } from "../hooks/queries.ts"
 import Loading from "../components/Loading.tsx"
+import Title from "../components/common/Title.tsx"
 import UsersTable from "../components/UsersTable.tsx"
 
 export default function Home () {
@@ -27,7 +28,7 @@ export default function Home () {
   if (isSuccess) {
     return (
       <div className='container'>
-        <h1>React + Vite + Typescript CRUD</h1>
+        <Title>React + Vite + Typescript CRUD</Title>
         <Button variant="contained" onClick={() => navigate('/add')}>Add</Button>
         <br />
         <br />

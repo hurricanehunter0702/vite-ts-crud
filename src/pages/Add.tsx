@@ -7,6 +7,7 @@ import { Button } from '@mui/material';
 import { Input } from "../types.ts";
 import UserForm from "../components/UserForm.tsx";
 import { useAddUser } from "../hooks/mutations.ts";
+import Title from '../components/common/Title.tsx';
 
 export default function Add() {
   const navigate = useNavigate()
@@ -21,7 +22,7 @@ export default function Add() {
 
   return (
     <div>
-      <h1>Add</h1>
+      <Title>Add</Title>
       <UserForm onSubmit={onSubmit} />
       <br />
       <Button variant="contained" onClick={() => navigate("/")}>Home</Button>
