@@ -1,9 +1,12 @@
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+
+import { Stack, Button } from "@mui/material"
 
 import { User } from "../types.ts"
 import { useDeleteUser } from "../hooks/mutations.ts"
 
 export default function UsersTable ({users}: {users: User[]}) {
+  const navigate = useNavigate()
   const {
     mutate: deleteUser,
   } = useDeleteUser()
@@ -31,8 +34,10 @@ export default function UsersTable ({users}: {users: User[]}) {
                 <td>{idx + 1}</td>
                 <td>{user.name}</td>
                 <td>
-                  <Link to={`/edit/${user.id}`}>Edit</Link>{' '}
-                  <button onClick={() => onDelete(user.id)} type='button'>Delete</button>
+                  <Stack spacing={2} direction="row">
+                    <Button variant="outlined" color="warning" onClick={() => navigate(`/edit/${user.id}`)} size="small">Edit</Button>
+                    <Button variant="outlined" color="error" onClick={() => onDelete(user.id)} size="small">Delete</Button>
+                  </Stack>
                 </td>
               </tr>
             )

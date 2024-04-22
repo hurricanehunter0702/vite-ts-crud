@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+
+import { Button } from "@mui/material"
 
 import Error from "../components/Error.tsx"
 import { useUsers } from "../hooks/queries.ts"
@@ -6,6 +8,7 @@ import Loading from "../components/Loading.tsx"
 import UsersTable from "../components/UsersTable.tsx"
 
 export default function Home () {
+  const navigate = useNavigate()
   const {
     isError,
     isLoading,
@@ -25,7 +28,7 @@ export default function Home () {
     return (
       <div className='container'>
         <h1>React + Vite + Typescript CRUD</h1>
-        <Link to='/add'>Add</Link>
+        <Button variant="contained" onClick={() => navigate('/add')}>Add</Button>
         <br />
         <br />
         <UsersTable users={users} />

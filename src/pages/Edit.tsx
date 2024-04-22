@@ -1,5 +1,7 @@
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { SubmitHandler } from "react-hook-form"
+
+import { Button } from "@mui/material"
 
 import { Input } from "../types.ts"
 import { useUser } from "../hooks/queries.ts"
@@ -9,6 +11,7 @@ import { getIdFromUrl } from "../utils/getIdFromUrl.ts"
 
 export default function Edit () {
   const {id} = getIdFromUrl(window.location.href)
+  const navigate = useNavigate()
 
   const {
     data: selectedUser
@@ -27,7 +30,7 @@ export default function Edit () {
       <h1>Edit</h1>
       <UserForm onSubmit={onSubmit} defaultValue={selectedUser?.name} />
       <br />
-      <Link to='/'>Home</Link>
+      <Button variant="contained" onClick={() => navigate("/")}>Home</Button>
     </div>
   )
 }
