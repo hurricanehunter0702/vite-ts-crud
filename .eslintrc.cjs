@@ -9,6 +9,7 @@ module.exports = {
     "unused-imports",
     "prettier"
   ],
+  "parser": "@typescript-eslint/parser",
   "extends": [
     "airbnb",
     "airbnb/hooks",
@@ -63,6 +64,7 @@ module.exports = {
     "import/prefer-default-export": 0,
     "react/function-component-definition": 0,
     "jsx-a11y/control-has-associated-label": 0,
+    "no-unexpected-token": "off",
     "no-nested-ternary": 0,
     "react/jsx-no-useless-fragment": [
       1,

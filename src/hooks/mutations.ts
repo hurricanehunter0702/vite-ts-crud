@@ -1,6 +1,7 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useNavigate } from "react-router-dom"
-import { addUserApi, editUserApi, deleteUserApi } from "../services/userApis"
+import { useMutation, useQueryClient } from "@tanstack/react-query"
+
+import { addUserApi, editUserApi, deleteUserApi } from "../services/userApis.ts"
 
 export const useAddUser = () => {
   const queryClient = useQueryClient()

@@ -1,10 +1,11 @@
-import { SubmitHandler } from "react-hook-form"
 import { Link } from "react-router-dom"
-import UserForm from "../components/UserForm"
-import { useEditUser } from "../hooks/mutations"
-import { useUser } from "../hooks/queries"
-import { Input } from "../types"
-import { getIdFromUrl } from "../utils/getIdFromUrl"
+import { SubmitHandler } from "react-hook-form"
+
+import { Input } from "../types.ts"
+import { useUser } from "../hooks/queries.ts"
+import UserForm from "../components/UserForm.tsx"
+import { useEditUser } from "../hooks/mutations.ts"
+import { getIdFromUrl } from "../utils/getIdFromUrl.ts"
 
 export default function Edit () {
   const {id} = getIdFromUrl(window.location.href)

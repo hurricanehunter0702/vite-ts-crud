@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid'
-import { useAddUser } from "../hooks/mutations";
+import { Link } from "react-router-dom";
 import { SubmitHandler } from "react-hook-form";
-import { Input } from "../types";
-import UserForm from "../components/UserForm";
+
+import { Input } from "../types.ts";
+import UserForm from "../components/UserForm.tsx";
+import { useAddUser } from "../hooks/mutations.ts";
 
 export default function Add() {
 

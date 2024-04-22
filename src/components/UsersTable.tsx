@@ -1,6 +1,7 @@
-import { User } from "../types"
 import { Link } from "react-router-dom"
-import { useDeleteUser } from "../hooks/mutations"
+
+import { User } from "../types.ts"
+import { useDeleteUser } from "../hooks/mutations.ts"
 
 export default function UsersTable ({users}: {users: User[]}) {
   const {
@@ -24,18 +25,18 @@ export default function UsersTable ({users}: {users: User[]}) {
       </thead>
       <tbody>
         {
-          users.length ? users.map((user, idx) => {
-            return (
+          users.length ? users.map((user, idx) =>
+            (
               <tr key={user.id}>
                 <td>{idx + 1}</td>
                 <td>{user.name}</td>
                 <td>
                   <Link to={`/edit/${user.id}`}>Edit</Link>{' '}
-                  <button onClick={() => onDelete(user.id)}>Delete</button>
+                  <button onClick={() => onDelete(user.id)} type='button'>Delete</button>
                 </td>
               </tr>
             )
-          })
+          )
           : <tr>
             <td colSpan={3} style={{textAlign: 'center', color: 'lightpink'}}>No users</td>
           </tr>
