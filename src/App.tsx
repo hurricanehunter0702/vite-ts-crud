@@ -34,7 +34,7 @@ export const MUIWrapperContext = createContext({
 })
 
 const MUIWrapper = ({children}: {children: ReactNode}) => {
-  const [mode, setMode] = useState<PaletteMode>('light')
+  const [mode, setMode] = useState<PaletteMode>('dark')
   const muiWrapperUtils = useMemo(() => ({
     toggleColorMode: () => {
       setMode(prevMode => (prevMode === 'light'? 'dark' : 'light'))

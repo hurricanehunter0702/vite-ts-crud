@@ -1,6 +1,15 @@
+import { ReactNode } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 
+import { TextField } from "@mui/material";
+
 import { Input } from "../types.ts";
+
+const Form = ({children, onSubmit}: {children: ReactNode, onSubmit: () => {}}) => (
+  <form onSubmit={onSubmit}>
+    {children}
+  </form>
+)
 
 export default function UserForm({onSubmit, defaultValue}: {onSubmit: SubmitHandler<Input>, defaultValue?: string}) {
   const {
@@ -9,9 +18,10 @@ export default function UserForm({onSubmit, defaultValue}: {onSubmit: SubmitHand
   } = useForm<Input>()
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register('name')} defaultValue={defaultValue} />
-      <input type="submit" />
-    </form>
+    <Form onSubmit={handleSubmit(onSubmit)}>
+      <TextField variant="outlined" {...register('name')} defaultValue={defaultValue} />
+      {/* <input {...register('name')} defaultValue={defaultValue} /> */}
+      <TextField variant="outlined" type="submit" />
+    </Form>
   )
 }

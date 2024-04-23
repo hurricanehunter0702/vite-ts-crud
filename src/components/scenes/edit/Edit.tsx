@@ -3,6 +3,7 @@ import { SubmitHandler } from "react-hook-form"
 
 import { Button } from "@mui/material"
 
+import Loading from "../../Loading.tsx"
 import { Input } from '../../../types.ts'
 import UserForm from "../../UserForm.tsx"
 import Title from "../../common/Title.tsx"
@@ -15,6 +16,7 @@ export default function Edit () {
   const navigate = useNavigate()
 
   const {
+    isLoading,
     data: selectedUser
   } = useUser(id)
 
@@ -29,7 +31,9 @@ export default function Edit () {
   return (
     <div>
       <Title>Edit</Title>
-      <UserForm onSubmit={onSubmit} defaultValue={selectedUser?.name} />
+      {
+        isLoading ? <Loading /> : <UserForm onSubmit={onSubmit} defaultValue={selectedUser?.name} />
+      }
       <br />
       <Button variant="contained" onClick={() => navigate("/")}>Home</Button>
     </div>
