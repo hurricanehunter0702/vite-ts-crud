@@ -12,9 +12,9 @@ export default function Header() {
     <AppBar position="static">
       <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          News
+          CRUD
         </Typography>
-        <Button variant="outline" onClick={muiUtils.toggleColorMode}>
+        <Button variant="contained" onClick={muiUtils.toggleColorMode}>
           {theme.palette.mode === "light"? "Dark Mode" : "Light Mode"}
         </Button>
       </Toolbar>

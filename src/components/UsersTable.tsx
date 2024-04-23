@@ -18,7 +18,7 @@ export default function UsersTable ({users}: {users: User[]}) {
   }
 
   return (
-    <TableContainer component={Paper} sx={{padding: 2}} variant="outlined">
+    <TableContainer component={Paper} sx={{padding: 2, width: '100%'}} variant="outlined">
       <Table aria-label="dota heros table">
         <TableHead>
           <TableRow>

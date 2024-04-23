@@ -27,13 +27,11 @@ export default function Home () {
 
   if (isSuccess) {
     return (
-      <div className='container'>
+      <>
         <Title>React + Vite + Typescript CRUD</Title>
         <Button variant="contained" onClick={() => navigate('/add')}>Add</Button>
-        <br />
-        <br />
         <UsersTable users={users} />
-      </div>
+      </>
     )
   }
 
