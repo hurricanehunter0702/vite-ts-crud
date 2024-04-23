@@ -1,40 +1,10 @@
-import { useNavigate } from "react-router-dom"
+import Layout from "../layouts/Layout.tsx"
+import Home from "../components/scenes/home/Home.tsx"
 
-import { Button } from "@mui/material"
-
-import Error from "../components/Error.tsx"
-import { useUsers } from "../hooks/queries.ts"
-import Loading from "../components/Loading.tsx"
-import Title from "../components/common/Title.tsx"
-import UsersTable from "../components/UsersTable.tsx"
-
-export default function Home () {
-  const navigate = useNavigate()
-  const {
-    isError,
-    isLoading,
-    data: users,
-    isSuccess
-  } = useUsers()
-
-  if (isError) {
-    return <Error />
-  }
-
-  if (isLoading) {
-    return <Loading />
-  }
-
-  if (isSuccess) {
-    return (
-      <div className='container'>
-        <Title>React + Vite + Typescript CRUD</Title>
-        <Button variant="contained" onClick={() => navigate('/add')}>Add</Button>
-        <br />
-        <br />
-        <UsersTable users={users} />
-      </div>
-    )
-  }
-
+export default function HomePage () {
+  return (
+    <Layout>
+      <Home />
+    </Layout>
+  )
 }
