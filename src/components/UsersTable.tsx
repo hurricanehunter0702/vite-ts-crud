@@ -1,19 +1,27 @@
+import { useSnackbar } from "notistack"
 import { useNavigate } from "react-router-dom"
 
 import { Stack, Paper, Table, Button, TableRow, TableCell, TableHead, TableBody, TableContainer } from "@mui/material"
 
 import { User } from "../types.ts"
+import Loading from "./Loading.tsx"
 import { useDeleteUser } from "../hooks/mutations.ts"
 
 export default function UsersTable ({users}: {users: User[]}) {
   const navigate = useNavigate()
+  const {enqueueSnackbar} = useSnackbar()
   const {
     mutate: deleteUser,
+    isError,
+    isPending
   } = useDeleteUser()
 
-  const onDelete = (id: string) => {
+  const onDelete = async (id: string) => {
     if (window.confirm('Are you sure?')) {
-      deleteUser(id)
+      await deleteUser(id)
+      if (isPending) <Loading />
+      else if (isError) enqueueSnackbar(isError.message, {variant: 'error'})
+      else enqueueSnackbar('User deleted', {variant:'success'})
     }
   }
 
