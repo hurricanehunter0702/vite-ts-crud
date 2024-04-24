@@ -13,10 +13,6 @@
       "name": "Tide Hunter"
     },
     {
-      "id": "e814f87b-4742-45dc-8346-e0fc8426f99c",
-      "name": "Axe"
-    },
-    {
       "id": "f428658c-c8ba-4ac5-bbce-7dc1326fbe36",
       "name": "Omni Knight"
     },
@@ -41,12 +37,8 @@
       "name": "Doom Brindger"
     },
     {
-      "id": "a79248bd-0749-4c84-a7c1-da40fb9978f8",
-      "name": "Centar"
-    },
-    {
       "id": "d87b05b9-cb72-4a6f-a171-6d0e9d96e264",
-      "name": "Beatmaster"
+      "name": "Beatmaste"
     },
     {
       "id": "9b92d7a0-365a-4deb-817d-f851c91201b8",
@@ -57,12 +49,12 @@
       "name": "Lexar"
     },
     {
-      "id": "1419c117-1580-45fd-8ef1-965b5ce45225",
-      "name": "BruthMother"
-    },
-    {
       "id": "7a44deee-def8-423f-9625-207fb1e6c73f",
       "name": "Anti Magi"
+    },
+    {
+      "id": "e20e9478-3911-4204-bcae-80cad63a72f0",
+      "name": "Undying"
     }
   ]
 }

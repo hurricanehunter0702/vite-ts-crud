@@ -1,13 +1,17 @@
 /* eslint-disable perfectionist/sort-imports */
-import { useMemo, useState, ReactNode, StrictMode, createContext  } from 'react'
+import { useRef, useMemo, useState, ReactNode, StrictMode, createContext } from 'react'
 
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { closeSnackbar, SnackbarProvider as NotiStackProvider } from 'notistack'
 import {
   RouterProvider,
   createBrowserRouter,
 } from 'react-router-dom'
-import { createTheme, PaletteMode, ThemeProvider } from '@mui/material'
+import { Box, IconButton, createTheme, PaletteMode, ThemeProvider } from '@mui/material'
+
+import {Icon} from "@iconify/react"
+
 
 import './App.css'
 import Add from './pages/Add.tsx'
@@ -54,6 +58,27 @@ const MUIWrapper = ({children}: {children: ReactNode}) => {
   )
 }
 
+const SnackbarProvider = ({children}: {children: ReactNode}) => {
+
+  const notistackRef = useRef(null)
+  return (
+    <NotiStackProvider
+      ref={notistackRef}
+      maxSnack={5}
+      preventDuplicate
+      autoHideDuration={3000}
+      variant="success"
+      anchorOrigin={{vertical: 'bottom', horizontal: 'right'}}
+      action={(snackbarId) => (
+        <IconButton size="small" onClick={() => closeSnackbar(snackbarId)}>
+          <Box component={Icon} icon="mingcute:close-line" />
+        </IconButton>
+      )}
+    >
+      {children}
+    </NotiStackProvider>
+  )
+}
 
 function App() {
   const queryClient = new QueryClient()
@@ -62,7 +87,9 @@ function App() {
     <StrictMode>
       <MUIWrapper>
         <QueryClientProvider client={queryClient}>
-          <RouterProvider router={router} />
+          <SnackbarProvider>
+            <RouterProvider router={router} />
+          </SnackbarProvider>
           <ReactQueryDevtools />
         </QueryClientProvider>
       </MUIWrapper>
